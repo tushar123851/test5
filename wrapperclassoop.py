@@ -71,9 +71,9 @@ class Developer(Employee):
 
 
 # Storage
-person = None
-manager = None
-developer = None
+persons = []
+managers = []
+developers = []
 employees = []  # List to store multiple employees
 
 
@@ -96,6 +96,7 @@ while True:
             name = input("Enter Name: ")
             age = int(input("Enter Age: "))
             person = Person(id, name, age)
+            persons.append(person)
             print("Person created successfully.")
 
         case "2":
@@ -114,6 +115,7 @@ while True:
             salary = float(input("Enter Salary: "))
             dept = input("Enter Department: ")
             manager = Manager(id, name, age, salary, dept)
+            managers.append(manager)
             print("Manager created successfully.")
 
         case "4":
@@ -123,6 +125,7 @@ while True:
             salary = float(input("Enter Salary: "))
             lang = input("Enter Programming Language: ")
             developer = Developer(id, name, age, salary, lang)
+            developers.append(developer)
             print("Developer created successfully.")
 
         case "5":
@@ -136,8 +139,11 @@ while True:
             match display_choice.lower():
                 case "a":
                     print("\n--- Person Details ---")
-                    if person:
-                        person.display()
+                    if persons:
+                        for pers in persons:
+                           pers.display()
+                           print("-------------------------------------------------------------")
+
                     else:
                         print("No Person created.")
                 case "b":
@@ -145,19 +151,25 @@ while True:
                     if employees:
                         for emp in employees:
                             emp.display()
-                            print("---")
+                            print("--------------------------------------------------------------")
                     else:
                         print("No Employees created.")
                 case "c":
                     print("\n--- Manager Details ---")
-                    if manager:
-                        manager.display()
+                    if managers:
+                        for man in managers:
+                            man.display()
+                            print("-----------------------------------------------------------------")
+
                     else:
                         print("No Manager created.")
                 case "d":
                     print("\n--- Developer Details ---")
-                    if developer:
-                        developer.display()
+                    if developers:
+                          for dev in developers:
+                              dev.display()
+                              print("----------------------------------------------------------------")
+
                     else:
                         print("No Developer created.")
                 case _:
