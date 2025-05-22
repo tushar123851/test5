@@ -29,25 +29,25 @@ class Person:
 class Employee(Person):
     def __init__(self, id=None, name=None, age=None, salary=None):
         super().__init__(id, name, age)
-        self._salary = salary
+        self.salary = salary
 
     def get_salary(self):
-        return self._salary
+        return self.salary
 
     def set_salary(self, salary):
-        self._salary = salary
+        self.salary = salary
 
     def compare_salary(self, other):
-        if self._salary > other.get_salary():
-            print(f"{self.get_name()} has a higher salary than {other.get_name()}.")
-        elif self._salary < other.get_salary():
-            print(f"{other.get_name()} has a higher salary than {self.get_name()}.")
+        if self.salary > other.get_salary():
+            print(f"{self.get_name()}(salary:{self.get_salary()}) has a higher salary than {other.get_name()}(salary:{other.get_salary()}).")
+        elif self.salary < other.get_salary():
+            print(f"{other.get_name()}(salary:{self.get_salary()}) has a higher salary than {self.get_name()}(salary:{other.get_salary()}).")
         else:
-            print(f"{self.get_name()} and {other.get_name()} have equal salaries.")
+            print(f"{self.get_name()}(salary:{self.get_salary()}) and {other.get_name()}(salary:{other.get_salary()}) have equal salaries.")
 
     def display(self):
         super().display()
-        print(f"Salary: {self._salary}")
+        print(f"Salary: {self.salary}")
 
 
 class Manager(Employee):
